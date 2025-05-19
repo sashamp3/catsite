@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang ="de">
+<head>
+<meta charset="UTF-8">
+<title>MeowHaus</title>
+<style>
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    color: rgb(255, 128, 192);
+  }
+  p {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+  }
+  .cart {
+    background-color: rgb(255, 196, 225);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ .navbar {
+    background-color: rgb(255, 128, 192);
+    padding: 15px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar li {
+    display: inline;
+  }
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffe4e1;
+  }
+  .gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .cat-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+  }
+  img {
+    width: 165px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  }
+  button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: rgb(255, 128, 192);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+</style>
+
+</head>
+<body>
+<nav class="navbar">
+  <ul>
+    <li><a href="#">🏠 Startseite</a></li>
+    <li><a href="#">💳 Kredit</a></li>
+    <li><a href="#">🛒 Warenkorb</a></li>
+    <li><a href="#">🌐 Soziale Netzwerke</a></li>
+  </ul>
+</nav>
+
+ <h1>Willkommen bei Meow Haus!</h1>
+ <p>Auf dieser Webseite können Sie sich eine Katze kaufen.</p>
+ 
+ <div class="gallery">
+  <div class="cat-card">
+    <img src="https://i.pinimg.com/736x/d6/f2/38/d6f238dcf1e585ef7bc421a18cc7538f.jpg" alt="Katze 1" />
+    <p><strong>Preis:</strong> 150€</p>
+    <button onclick="addToCart('Katze 1', 150)">Katze kaufen</button>
+
+  </div>
+   <div class="cat-card">
+    <img src="https://i.pinimg.com/736x/ec/c2/75/ecc275c0a3c010da2a529182d8a447d5.jpg" alt="Katze 2">
+    <p><strong>Preis:</strong> 350€</p>
+    <button onclick="addToCart('Katze 1', 350)">Katze kaufen</button>
+
+  </div>
+
+  <div class="cat-card">
+    <img src="https://i.pinimg.com/736x/c0/1d/82/c01d82e4748a8d5934c51f5c06ba79b6.jpg" alt="Katze 3">
+    <p><strong>Preis:</strong> 200€</p>
+    <button onclick="addToCart('Katze 1', 200)">Katze kaufen</button>
+
+  </div>
+   <div class="cat-card">
+    <img src="https://i.pinimg.com/736x/55/7b/e8/557be80a708926bcafeba330f3e4e5eb.jpg" alt="Katze 4">
+    <p><strong>Preis:</strong> 550€</p>
+    <button onclick="addToCart('Katze 1', 550)">Katze kaufen</button>
+
+  </div>
+</div>
+
+
+<div class="cart">
+  <h2>🛒 Warenkorb</h2>
+  <ul id="cart-items"></ul>  
+  <p><strong>Gesamtsumme:</strong> <span id="total">0€</span></p> 
+</div>
+
+ 
+ 
+ <script>
+  let total = 0;  // Початкова сума
+
+  function addToCart(name, price) {
+    const cartItems = document.getElementById("cart-items"); // Знаходимо список
+    const newItem = document.createElement("li"); // Створюємо новий пункт
+
+    newItem.textContent = `${name} – ${price}€`; // Текст для пункту
+    cartItems.appendChild(newItem); // Додаємо в список
+
+    total += price; // Додаємо ціну до суми
+    document.getElementById("total").textContent = total + "€"; // Оновлюємо суму
+  }
+</script>
+ 
+ 
+ 
+</body>
+
+</html>
